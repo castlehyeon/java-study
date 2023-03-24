@@ -6,9 +6,8 @@ import kr.or.kosa.Beverage2;
 import kr.or.kosa.Payment;
 import kr.or.kosa.VendingMachine2;
 
-class Util{
+class Util {
 
-	
 }
 
 public class Main {
@@ -31,8 +30,7 @@ public class Main {
 
 			control = scanner.nextInt();
 
-			Back:
-			switch (control) {
+			Back: switch (control) {
 			case 1:// 음료규매
 				do {
 					System.out.println("금액을 입력해주세요.");
@@ -51,7 +49,7 @@ public class Main {
 							ame.minusCount();
 							System.out.println("아메리카노 나왔습니다~");
 						} else {
-							pm.returnChange(inputMoney);//돈 반환
+							pm.returnChange(inputMoney);// 돈 반환
 							System.out.println("다음에 오세요");
 						}
 						break Back;
@@ -61,14 +59,72 @@ public class Main {
 					case 3: // 망고쥬스
 						mango.minusCount();
 						break Back;
-					case 4 : //메인메뉴로 돌아가기
-						pm.returnChange(inputMoney);//돈 반환
+					case 4: // 메인메뉴로 돌아가기
+						pm.returnChange(inputMoney);// 돈 반환
 						break Back;
 					}
 
 				} while (exit == false);
 
 			case 2:
+				do {
+					System.out.println("재고를 채울 음료를 선택하십시오");
+					System.out.println("1. 아메리카노 2. 라떼 3. 망고쥬스 4. 취소");
+					int num = scanner.nextInt();
+					boolean exit2 = false;
+					Stock:
+					switch (num) {
+					case 1:
+						System.out.printf("아메리카노의 재고는 %d개 입니다.\n", ame.getReserves());
+						System.out.println("재고를 채우시겠습니까? 1.채우기  2. 채우지 않기");
+						int stock = scanner.nextInt();
+						switch (stock) {
+						case 1:
+							System.out.println("아메리카노의 재고를 채웠습니다.");
+							System.out.printf("재고는 %d개 입니다\n", ame.getReserves());
+							break Stock;
+						case 2:
+							break Stock;
+						default:
+							System.out.println("유효한 값을 입력하세요");
+							break Stock;
+						}
+					case 2:
+						System.out.printf("라떼의 재고는 %d개 입니다.\n", latte.getReserves());
+						System.out.println("재고를 채우시겠습니까? 1.채우기  2. 채우지 않기");
+						int stock1 = scanner.nextInt();
+						switch (stock1) {
+						case 1:
+							System.out.println("라떼의 재고를 채웠습니다.");
+							System.out.printf("재고는 %d개 입니다\n", latte.getReserves());
+							break Stock;
+						case 2:
+							break Stock;
+						default:
+							System.out.println("유효한 값을 입력하세요");
+							break Stock;
+						}
+
+					case 3:
+						System.out.printf("망고주스의 재고는 %d개 입니다.\n", mango.getReserves());
+						System.out.println("재고를 채우시겠습니까? 1.채우기  2. 채우지 않기");
+						int stock2 = scanner.nextInt();
+						switch (stock2) {
+						case 1:
+							System.out.println("망고주스의 재고를 채웠습니다.");
+							System.out.printf("재고는 %d개 입니다\n", mango.getReserves());
+							break Stock;
+						case 2:
+							break Stock;
+						default:
+							System.out.println("유효한 값을 입력하세요");
+							break Stock;
+						}
+					case 4:
+						break Back;
+					}
+				} while (exit == false);
+
 			case 3:
 				System.out.print("종료합니다.");
 				exit = true;
