@@ -6,13 +6,13 @@ import kr.or.kosa.Payment;
 class Util {
 	// 음료구매 함수
 	public void buy(int inputMoney, Beverage2 beverage) {
-		if(beverage.getReserves()>0) {	// 재고가 있을때
+		if(beverage.getReserves() > 0) {
 			if (inputMoney >= beverage.getPrice()) {
 				System.out.printf("%s 나왔습니다~\n\n", beverage.getName());
 				beverage.minusCount();
 				returnChange(inputMoney - beverage.getPrice());
 			}else {
-				returnChange(inputMoney);// 돈 반환
+				returnChange(inputMoney);
 				System.out.println("돈이 부족합니다. 나중에 다시 방문해주세요!");
 			}
 		}else {	//재고 없을때
