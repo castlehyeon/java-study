@@ -6,14 +6,36 @@ import kr.or.kosa.Beverage2;
 import kr.or.kosa.Payment;
 import kr.or.kosa.VendingMachine2;
 
+<<<<<<< HEAD
 class Util {
 
+=======
+class Util{
+	//음료구매 함수
+	public void buy(int inputMoney,Beverage2 beverage){
+		if (inputMoney >= beverage.getPrice()) {
+			System.out.printf("%s 나왔습니다~\n\n",beverage.getName());
+			beverage.minusCount();
+			returnChange(inputMoney - beverage.getPrice());
+		} else {
+			returnChange(inputMoney);//돈 반환
+			System.out.println("돈이 부족합니다. 나중에 다시 방문해주세요!");
+		}
+	}
+	
+	//잔돈반환 함수
+	public void returnChange(int money) {
+		Payment pm = new Payment();
+		pm.returnChange(money);
+	}
+>>>>>>> b995432d4a6d7e05f3244a7b73432bbe80a0d28b
 }
 
 public class Main {
 	public static void main(String[] args) {
-		VendingMachine2 vm = new VendingMachine2();
+		Util util = new Util();
 
+		VendingMachine2 vm = new VendingMachine2();
 		Beverage2 ame = new Beverage2(1, "아메리카노", 1000);
 		Beverage2 latte = new Beverage2(2, "라떼", 1500);
 		Beverage2 mango = new Beverage2(3, "망고주스", 2000);
@@ -36,14 +58,14 @@ public class Main {
 					System.out.println("금액을 입력해주세요.");
 					int inputMoney = scanner.nextInt();
 
-					System.out.println("1. 아메리카노 2. 라떼 3. 망고쥬스 4. 취소");
+					System.out.println("1. 아메리카노[1000원] 2. 라떼[1500원] 3. 망고쥬스[2000원] 4. 취소");
 					System.out.print("메뉴를 선택해주세요. : ");
 
 					control = scanner.nextInt();
-					Payment pm = new Payment();
 
 					switch (control) {
 					case 1: // 아메리카노
+<<<<<<< HEAD
 						if (inputMoney >= ame.getPrice()) {
 							pm.returnChange(inputMoney - ame.getPrice());
 							ame.minusCount();
@@ -52,20 +74,29 @@ public class Main {
 							pm.returnChange(inputMoney);// 돈 반환
 							System.out.println("다음에 오세요");
 						}
+=======
+						util.buy(inputMoney,ame);
+>>>>>>> b995432d4a6d7e05f3244a7b73432bbe80a0d28b
 						break Back;
 					case 2: // 라떼
-						latte.minusCount();
+						util.buy(inputMoney,latte);
 						break Back;
 					case 3: // 망고쥬스
-						mango.minusCount();
+						util.buy(inputMoney,mango);
 						break Back;
+<<<<<<< HEAD
 					case 4: // 메인메뉴로 돌아가기
 						pm.returnChange(inputMoney);// 돈 반환
+=======
+					case 4 : //메인메뉴로 돌아가기
+						util.returnChange(inputMoney);//돈 반환
+>>>>>>> b995432d4a6d7e05f3244a7b73432bbe80a0d28b
 						break Back;
 					}
 
 				} while (exit == false);
 
+<<<<<<< HEAD
 			case 2:
 				do {
 					System.out.println("재고를 채울 음료를 선택하십시오");
@@ -125,6 +156,9 @@ public class Main {
 					}
 				} while (exit == false);
 
+=======
+			case 2:// 재고충전
+>>>>>>> b995432d4a6d7e05f3244a7b73432bbe80a0d28b
 			case 3:
 				System.out.print("종료합니다.");
 				exit = true;
@@ -133,4 +167,6 @@ public class Main {
 		} while (exit == false);
 
 	}
+
+	
 }
