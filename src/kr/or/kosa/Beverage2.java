@@ -8,7 +8,6 @@ public class Beverage2 {
     int reserves; //보유량(상태정보)
 
     public Beverage2(int control, String name , int price){
-   
     	this.control = control;
     	this.name = name;
     	this.price = price;
