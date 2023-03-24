@@ -8,11 +8,14 @@ public class Beverage2 {
     int reserves; //보유량(상태정보)
 
     public Beverage2(int control, String name , int price){
+   
+    	this.control = control;
     	this.name = name;
     	this.price = price;
     	this.reserves = 10;
     }
     
+    //재고 감소 함수
     public void minusCount(){
     	reserves--;
 	}
@@ -33,7 +36,15 @@ public class Beverage2 {
         this.price = price;
     }
 
-    public int getReserves() {
+    public int getControl() {
+		return control;
+	}
+
+	public void setControl(int control) {
+		this.control = control;
+	}
+
+	public int getReserves() {
         return reserves;
     }
 

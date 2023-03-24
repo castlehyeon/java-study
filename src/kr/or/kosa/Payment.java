@@ -9,7 +9,7 @@ public class Payment {
 	public void returnChange(int money) {
 		while (true) {
 			if ((num = (int) money / unit) != 0)
-				System.out.printf("%d %d개\n", unit, num);
+				System.out.printf("%d원 %d개\n", unit, num);
 			if (unit > 1) {
 				money -= unit * num;
 				switch (sw) {
