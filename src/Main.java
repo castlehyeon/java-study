@@ -80,13 +80,16 @@ public class Main {
 
 					switch (control) {
 					case 1: // 아메리카노
-						util.buy(inputMoney, ame);
+						if(ame.getReserves()!=0) util.buy(inputMoney, ame);
+						else System.out.println("재고가 부족합니다");
 						break Back;
 					case 2: // 라떼
-						util.buy(inputMoney, latte);
+						if(latte.getReserves()!=0) util.buy(inputMoney, latte);
+						else System.out.println("재고가 부족합니다");
 						break Back;
 					case 3: // 망고쥬스
-						util.buy(inputMoney, mango);
+						if(mango.getReserves()!=0) util.buy(inputMoney, mango);
+						else System.out.println("재고가 부족합니다");
 						break Back;
 
 					case 0: // 메인메뉴로 돌아가기
@@ -111,6 +114,7 @@ public class Main {
 						switch (stock) {
 						case 1:
 							System.out.println("아메리카노의 재고를 채웠습니다.");
+							ame.setReserves(10);
 							System.out.printf("재고는 %d개 입니다\n", ame.getReserves());
 							break Stock;
 						case 2:
@@ -126,6 +130,7 @@ public class Main {
 						switch (stock1) {
 						case 1:
 							System.out.println("라떼의 재고를 채웠습니다.");
+							latte.setReserves(10);
 							System.out.printf("재고는 %d개 입니다\n", latte.getReserves());
 							break Stock;
 						case 2:
@@ -142,6 +147,7 @@ public class Main {
 						switch (stock2) {
 						case 1:
 							System.out.println("망고주스의 재고를 채웠습니다.");
+							mango.setReserves(10);
 							System.out.printf("재고는 %d개 입니다\n", mango.getReserves());
 							break Stock;
 						case 2:
